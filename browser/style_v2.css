@@ -1,0 +1,75 @@
+QToolBar {
+    background-color: #F1F1F1;
+    border: none;
+}
+
+QToolButton {
+    border: none;
+}
+
+QToolButton:hover, QToolButton:pressed {
+    background-color: #E5E5E5;
+}
+
+QToolButton > QMenu::indicator {
+    width: 0px;
+}
+
+QToolButton > QMenu::icon {
+    padding-right: 10px;
+}
+
+QToolButton::menu-indicator {
+    image: none;
+}
+
+QToolButton#back-button {
+    qproperty-icon: url(back-arrow.png);
+    color: #333333;
+}
+
+QToolButton#back-button:hover, QToolButton#back-button:pressed {
+    color: #008CBA;
+}
+
+QToolButton#forward-button {
+    qproperty-icon: url(forward-arrow.png);
+    color: #333333;
+}
+
+QToolButton#forward-button:hover, QToolButton#forward-button:pressed {
+    color: #008CBA;
+}
+
+QToolButton#reload-button {
+    qproperty-icon: url(reload.png);
+    color: #333333;
+}
+
+QToolButton#reload-button:hover, QToolButton#reload-button:pressed {
+    color: #008CBA;
+}
+
+QToolButton#stop-button {
+    qproperty-icon: url(stop.png);
+    color: #333333;
+}
+
+QToolButton#stop-button:hover, QToolButton#stop-button:pressed {
+    color: #008CBA;
+}
+
+QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 2px;
+    padding: 2px 5px;
+}
+
+QPushButton {
+    border: none;
+}
+
+QPushButton:hover, QPushButton:pressed {
+    background-color: #E5E5E5;
+}
