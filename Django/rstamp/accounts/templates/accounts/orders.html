@@ -1,0 +1,14 @@
+{% extends 'store/base.html' %}
+
+{% block body %}
+    <h1>Orders</h1>
+    {% if orders %}
+        <ul>
+            {% for order in orders %}
+                <li>{{ order }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No orders found.</p>
+    {% endif %}
+{% endblock %}

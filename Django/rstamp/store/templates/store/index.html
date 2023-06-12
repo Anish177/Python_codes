@@ -1,0 +1,24 @@
+{% extends 'store/base.html' %}
+
+
+{% block body %}
+    <div class="container">
+        <div class="display-6">
+            Our products
+        </div>
+        <br>
+        <div class="d-flex">
+            {% for product in product_objects %}
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View details and order</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

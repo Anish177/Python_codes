@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+</head>
+<body>
+    <h1>Checkout</h1>
+
+    <form method="post" action="{{ paytm_url }}">
+        {% for key, value in paytm_params.items %}
+            <input type="hidden" name="{{ key }}" value="{{ value }}">
+        {% endfor %}
+        <input type="submit" value="Proceed to Pay">
+    </form>
+
+    <script>
+        document.forms[0].submit();
+    </script>
+</body>
+</html>

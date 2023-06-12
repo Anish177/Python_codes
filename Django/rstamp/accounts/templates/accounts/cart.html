@@ -1,0 +1,22 @@
+{% extends 'store/base.html' %}
+
+{% block body %}
+  {% for item in cart_items %}
+    <div class="product-card">
+      <div class="product-image">
+        <img src="{{ item.product.image.url }}" alt="{{ item.product.title }}">
+      </div>
+      <div class="product-details">
+        <h2>{{ item.product.title }}</h2>
+        <p>Price: ${{ item.product.price }}</p>
+        <p>Quantity: {{ item.quantity }}</p>
+        <p>Product Type: {{ item.product_type }}</p>
+        <p>Details: {{ item.details }}</p>
+        <a href="{% url 'remove_from_cart' item.id %}">Remove</a>
+      </div>
+    </div>
+  {% empty %}
+    <p>Your cart is empty.</p>
+  {% endfor %}
+  <a href="{% url 'orders' %}">Orders</a>
+{% endblock %}

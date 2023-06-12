@@ -1,0 +1,9 @@
+{% extends 'store/base.html' %}
+
+{% block body %}
+
+  <h1 class="display-4">Login now using Google</h1>
+  {% load socialaccount %}
+  <a href="{% provider_login_url 'google' %}">Login with Google</a>
+  
+{% endblock %}

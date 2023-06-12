@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(226, 228, 251);
+    margin: 1%;
+}
+
+.bg-nav{
+    background-color: rgba(127, 131, 168, 0.697);
+    margin: 1% 0 2% 0;
+    box-shadow: rgb(35 37 49 / 40%) 3px 3px;
+    position: sticky;
+    top: 1%;
+    z-index: 1020;
+}

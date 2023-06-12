@@ -1,0 +1,28 @@
+{% extends 'store/base.html' %}
+{% block body %}
+<h1>{{ product.title }}</h1>
+<p>{{ product.description }}</p>
+<!-- Add any additional product information you want to display -->
+
+<!-- Add to Cart form -->
+<form method="post" action="{% url 'add_to_cart' product.id %}">
+  {% csrf_token %}
+  <input type="hidden" name="quantity" value="1"> <!-- Default quantity is 1, can be modified as needed -->
+  
+  <label for="price">Price:</label>
+  <input name="price" type="number" value="11" disabled>
+
+  <label for="product_type">Product Type:</label>
+  <select name="product_type" id="product_type">
+    <option value="normal">Normal</option>
+    <option value="proprietor">Proprietor</option>
+    <option value="circle">Circle</option>
+    <option value="group">Group</option>
+  </select>
+
+  <label for="details">Details:</label>
+  <textarea name="details" id="details" rows="4" cols="50"></textarea>
+
+  <input type="submit" value="Add to Cart">
+</form>
+{% endblock %}

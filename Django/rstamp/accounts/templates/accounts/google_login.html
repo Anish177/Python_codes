@@ -1,0 +1,18 @@
+{% load socialaccount %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+</head>
+<body>
+  <h1>Custom</h1>
+
+  <h1>Sign In Via Google</h1>
+  <p>You are about to sign in using a third-party account from Google.</p>
+
+  <a href="{% provider_login_url 'google'%}?next=/">Continue with Google</a>
+</body>
+</html>
