@@ -1,0 +1,12 @@
+.header{
+    margin: 10px;
+    padding: auto;
+    background-color: green;
+    height: 70px;
+    align-content: center;
+}
+.header_text{
+    background-color: black;
+    width: fit-content;
+    margin: auto;
+}
