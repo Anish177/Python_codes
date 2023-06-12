@@ -71,8 +71,8 @@ PAYTM_CALLBACK_URL = 'http://127.0.0.1:8000/paytm/callback'
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
-            'client_id': '313380937628-f9ko9qgt8qijug4rvam6h1amssrfqbqs.apps.googleusercontent.com',
-            'secret': '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',
+            'client_id': " " # redacted for privacy reasons,
+            'secret': " " # redacted for privacy reasons,
             'key': ''
         }
     }
