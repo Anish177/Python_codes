@@ -61,9 +61,5 @@ def dominant_color_finder(image_path: str) -> list[int]:
 # img = Image.open(BytesIO(response.content))
 # img = img.resize((150, 150))
 
-# # Display the album cover art in the GUI
-# album_cover = ImageTk.PhotoImage(img)
-# # album_cover_label.config(image = album_cover)
-# # album_cover_label.image = album_cover
-
-# print(rgb_to_hex(dominant_color_finder(album_cover)))
+# cover = ImageTk.PhotoImage(img)
+# print(rgb_to_hex(dominant_color_finder(cover)))
