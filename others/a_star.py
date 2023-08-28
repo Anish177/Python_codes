@@ -8,18 +8,18 @@ from queue import PriorityQueue
 pygame.init()
 
 # Set up display dimensions
-WIDTH = 800
+WIDTH = 700
 WIN = pygame.display.set_mode((WIDTH, WIDTH))
 pygame.display.set_caption("A* Pathfinding Visualization")
 
 # Colors
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-GREEN = (0, 255, 0)
-RED = (255, 0, 0)
-BLUE = (0, 0, 255)
-YELLOW = (255, 255, 0)
-PURPLE = (130, 126, 254)
+NODE_COLOR = (45, 51, 61)
+BARRIER_COLOR = (187, 197, 255)
+CLOSED_COLOR = (194, 255, 184)
+OPEN_COLOR = (255, 184, 184)
+START_COLOR = (184, 214, 255)
+END_COLOR = (245, 255, 184)
+PATH_COLOR = (176, 105, 255)
 
 
 # Node class
@@ -29,7 +29,7 @@ class Node:
         self.col = col
         self.x = row * width
         self.y = col * width
-        self.color = WHITE
+        self.color = NODE_COLOR
         self.neighbors = []
         self.width = width
         self.total_rows = total_rows
@@ -38,40 +38,40 @@ class Node:
         return self.row, self.col
 
     def is_closed(self):
-        return self.color == RED
+        return self.color == CLOSED_COLOR
 
     def is_open(self):
-        return self.color == GREEN
+        return self.color == OPEN_COLOR
 
     def is_barrier(self):
-        return self.color == BLACK
+        return self.color == BARRIER_COLOR
 
     def is_start(self):
-        return self.color == BLUE
+        return self.color == START_COLOR
 
     def is_end(self):
-        return self.color == YELLOW
+        return self.color == END_COLOR
 
     def reset(self):
-        self.color = WHITE
+        self.color = NODE_COLOR
 
     def make_start(self):
-        self.color = BLUE
+        self.color = START_COLOR
 
     def make_closed(self):
-        self.color = RED
+        self.color = CLOSED_COLOR
 
     def make_open(self):
-        self.color = GREEN
+        self.color = OPEN_COLOR
 
     def make_barrier(self):
-        self.color = BLACK
+        self.color = BARRIER_COLOR
 
     def make_end(self):
-        self.color = YELLOW
+        self.color = END_COLOR
 
     def make_path(self):
-        self.color = PURPLE
+        self.color = PATH_COLOR
 
     def draw(self, win):
         pygame.draw.rect(win, self.color, (self.x, self.y, self.width, self.width))
@@ -166,14 +166,14 @@ def make_grid(rows, width):
 # Draw grid lines
 def draw_grid(win, rows, width):
     gap = width // rows
-    for i in range(rows):
-        pygame.draw.line(win, BLACK, (0, i * gap), (width, i * gap))
-        for j in range(rows):
-            pygame.draw.line(win, BLACK, (j * gap, 0), (j * gap, width))
+    # for i in range(rows):
+    #     pygame.draw.line(win, BARRIER_COLOR, (0, i * gap), (width, i * gap))
+    #     for j in range(rows):
+    #         pygame.draw.line(win, BARRIER_COLOR, (j * gap, 0), (j * gap, width))
 
 # Draw everything
 def draw(win, grid, rows, width):
-    win.fill(WHITE)
+    win.fill(NODE_COLOR)
     for row in grid:
         for node in row:
             node.draw(win)
