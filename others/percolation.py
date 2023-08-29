@@ -1,10 +1,8 @@
-# WIP - almost done?
-
 # %%
+import sys
+import random
 import pygame
 import pygame_gui
-import random
-import sys
 sys.setrecursionlimit(5000)
 
 # %%
@@ -31,8 +29,11 @@ ui_manager = pygame_gui.UIManager((WIDTH, HEIGHT))
 
 # Create a slider to control percolation probability
 slider_rect = pygame.Rect(10, HEIGHT - 40, WIDTH - 20, 30)
-slider = pygame_gui.elements.UIHorizontalSlider(relative_rect=slider_rect, start_value=PERCOLATION_PROBABILITY,
-                                                value_range=(0.1, 1.0), manager=ui_manager, click_increment=0.05)
+slider = pygame_gui.elements.UIHorizontalSlider(relative_rect=slider_rect,
+                                                start_value=PERCOLATION_PROBABILITY,
+                                                value_range=(0.1, 1.0),
+                                                manager=ui_manager,
+                                                click_increment=0.05, )
 def find_connected_group(row, col, group_number):
     if row < 0 or row >= GRID_HEIGHT or col < 0 or col >= GRID_WIDTH:
         return
@@ -58,6 +59,7 @@ def generate_cell_colors():
 grid = generate_grid(PERCOLATION_PROBABILITY)
 
 cell_colors = generate_cell_colors()
+
 group_colors = [pygame.Color(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
                 for _ in range(GRID_HEIGHT * GRID_WIDTH)]
 
@@ -74,7 +76,8 @@ while running:
             if event.user_type == pygame_gui.UI_HORIZONTAL_SLIDER_MOVED:
                 # Update the percolation probability based on the slider value
                 PERCOLATION_PROBABILITY = event.value
-                grid = [[random.random() < PERCOLATION_PROBABILITY for _ in range(GRID_WIDTH)] for _ in range(GRID_HEIGHT)]
+                grid = generate_grid(PERCOLATION_PROBABILITY)
+                pygame.display.flip
 
         ui_manager.process_events(event)
 
@@ -95,13 +98,12 @@ while running:
     for row in range(GRID_HEIGHT):
         for col in range(GRID_WIDTH):
             if grid[row][col]:
-                            group_num = groups[row][col]
-                            color = group_colors[group_num - 1]  # Subtract 1 because group numbers start from 1
+                group_num = groups[row][col]
+                color = group_colors[group_num - 1]  # Subtract 1 because group numbers start from 1
             else:
                 color = cell_colors[row * GRID_WIDTH + col]
             
             pygame.draw.rect(screen, color, (col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE))
-
 
     ui_manager.draw_ui(screen)
 
