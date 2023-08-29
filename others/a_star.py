@@ -1,3 +1,5 @@
+# Works fine afaik
+
 # %%
 import pygame
 from queue import PriorityQueue
@@ -71,7 +73,7 @@ class Node:
 
     def make_path(self):
         self.color = PATH_COLOR
-
+    
     def draw(self, win):
         pygame.draw.rect(win, self.color, (self.x, self.y, self.width, self.width))
 
@@ -169,6 +171,11 @@ def draw_grid(win, rows, width):
     #     pygame.draw.line(win, BARRIER_COLOR, (0, i * gap), (width, i * gap))
     #     for j in range(rows):
     #         pygame.draw.line(win, BARRIER_COLOR, (j * gap, 0), (j * gap, width))
+def clear_grid(grid):
+    for row in grid:
+        for node in row:
+            node.reset()
+    return None, None
 
 # Draw everything
 def draw(win, grid, rows, width):
@@ -241,7 +248,11 @@ def main(win, width):
 
                     astar(lambda: draw(win, grid, ROWS, width), grid, start, end)
 
-                    started = True
+                    started = False
+                elif event.key == pygame.K_c:  # Clear the grid
+                    start, end = clear_grid(grid)
+                    draw(win, grid, ROWS, width)
+                    started = False
 
     pygame.quit()
 
