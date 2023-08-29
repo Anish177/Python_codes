@@ -6,6 +6,7 @@ import pygame_gui
 import random
 import sys
 sys.setrecursionlimit(5000)
+
 # %%
 # Initialize Pygame
 pygame.init()
