@@ -29,5 +29,5 @@ plt.xlabel('Number of Items Selected')
 plt.ylabel('Density')
 plt.title('Approximation of Combinations Distribution')
 
-# Display the plot
+
 plt.show()
