@@ -10,6 +10,25 @@
 # another possible solution: two visited lists - one with all visited states and other for current?
 
 
+"""
+Solves 3 x 3 puzzle (8-Puzzle).
+Could be generalized to n x n puzzles as well.
+
+Uses Greedy Best First Search to find solution.
+
+Note: Some puzzles are unsolvable due to parity issues.
+This approach does not precheck for solvability and considers a puzzle unsolvable when the iteration limit is reached.
+
+
+Approximate Time Complexity: O(4 ^ d)
+
+Did you know? Most solvable 8-puzzles can be solved with at most 31 moves.
+
+Possible future improvements:
+1. Reduce redundancy in the code.
+2. Use sets instead of lists for visited states to improve lookup efficiency.
+"""
+
 from ast import literal_eval
 from contextlib import suppress
 from copy import deepcopy
@@ -145,3 +164,5 @@ def solve(temp0: list, S: list) -> None:
 
 
 solve(A, S)
+
+# easter egg: this was one of two of the first programs I have ever written
