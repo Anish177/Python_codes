@@ -7,7 +7,7 @@
 #A = [[0,2,3], [1,4,5], [8,7,6]]
 #S = [[1,2,3], [8,0,4], [7,6,5]]
 
-#two visited lists - one with all visited states and other for current?
+# another possible solution: two visited lists - one with all visited states and other for current?
 
 
 from ast import literal_eval
